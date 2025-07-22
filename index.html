@@ -47,11 +47,44 @@
       margin-top: 2rem;
       font-weight: bold;
     }
-    .services ul li {
-      text-align: left;
-      max-width: 600px;
-      margin: 0.6rem 0;
-    }
+.services {
+  margin-top: 2rem;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.services h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.service-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.service-card {
+  flex: 0 0 250px;
+  background: white;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: left;
+  scroll-snap-align: start;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.service-card span {
+  display: block;
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
 
   </style>
 </head>
@@ -59,17 +92,16 @@
   <img src="/images/logo.png" alt="Montshire Geospatial Logo" class="logo">
   <p>Geospatial expertise for a connected world.</p>
 
-  <div class="services">
-    <h2>Services</h2>
-      <ul>
-        <li><strong>ArcGIS Solution Architecture</strong> – Designing and implementing ArcGIS Online and ArcGIS Enterprise environments for scalable, mission-driven applications.</li>
-        <li><strong>System & Data Integration</strong> – Connecting platforms like WebEOC, Salesforce, ServiceNow, and others using Python, AWS Lambda, and Microsoft Power Platform.</li>
-        <li><strong>Operational Dashboards & Decision Support</strong> – Building geospatial dashboards and story maps to support emergency management, public health, and situational awareness.</li>
-        <li><strong>Cloud-Based Automation</strong> – Developing serverless data pipelines and scripts to streamline data sharing, ETL processes, and alerting workflows.</li>
-        <li><strong>Geospatial Strategy & Technical Consulting</strong> – Providing expertise to public-sector and nonprofit organizations on geospatial standards, architecture, and stakeholder engagement.</li>
-      </ul>
-
+<div class="services">
+  <h2>Services</h2>
+  <div class="service-scroll">
+    <div class="service-card">ArcGIS Solution Architecture<br><span>Design and deployment of scalable, mission-driven geospatial environments.</span></div>
+    <div class="service-card">System & Data Integration<br><span>Connecting platforms like WebEOC, Salesforce, AWS, and Power Platform.</span></div>
+    <div class="service-card">Operational Dashboards<br><span>Real-time decision support using ArcGIS Dashboards and StoryMaps.</span></div>
+    <div class="service-card">Cloud-Based Automation<br><span>Serverless data pipelines and ETL tools using Python and AWS Lambda.</span></div>
+    <div class="service-card">Geospatial Strategy<br><span>Consulting for standards, architecture, and public sector GIS programs.</span></div>
   </div>
+</div>
 
   <div class="contact">
     <p>Contact: <a href="mailto:info@montshire-geospatial.com">info@montshire-geospatial.com</a></p>
