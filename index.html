@@ -5,95 +5,123 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Montshire Geospatial</title>
   <style>
-   body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    background-color: #f7f9fc;
-    color: #2b2b2b;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    /* height: 100vh; <-- REMOVE THIS */ 
-  }
-    .logo {
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background-color: #f7f9fc;
+      color: #2b2b2b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .logo-container {
+      position: relative;
+      width: 100%;
       max-width: 500px;
+      margin-top: 2rem;
+    }
+    .logo {
       width: 100%;
       height: auto;
+      display: block;
+    }
+    .tagline {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.8);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    .services {
+      margin-top: 2rem;
+      width: 100%;
+      padding: 0 1rem;
+      position: relative;
+    }
+    .services h2 {
+      text-align: center;
       margin-bottom: 1rem;
     }
-    h1 {
-      margin: 0;
-      font-size: 2rem;
+    .service-scroll {
+      display: flex;
+      overflow: hidden;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      scroll-snap-type: x mandatory;
     }
-    p {
-      font-size: 1rem;
-      margin: 0.5rem 0;
+    .service-card {
+      flex: 0 0 250px;
+      background: white;
+      border: 1px solid #dcdcdc;
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: left;
+      scroll-snap-align: start;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+    .service-card span {
+      display: block;
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+    .scroll-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.8);
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.2rem 0.5rem;
+      z-index: 10;
+    }
+    .scroll-left {
+      left: 0;
+    }
+    .scroll-right {
+      right: 0;
     }
     .contact {
       margin-top: 2rem;
       font-weight: bold;
     }
-      .services {
-        margin-top: 2rem;
-        width: 100%;
-        padding: 0 1rem;
-      }
-      
-      .services h2 {
-        text-align: center;
-        margin-bottom: 1rem;
-      }
-      
-      .service-scroll {
-        display: flex;
-        overflow-x: auto;
-        gap: 1rem;
-        padding-bottom: 1rem;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-      }
-      
-      .service-card {
-        flex: 0 0 250px;
-        background: white;
-        border: 1px solid #dcdcdc;
-        border-radius: 8px;
-        padding: 1rem;
-        text-align: left;
-        scroll-snap-align: start;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-      }
-      
-      .service-card span {
-        display: block;
-        font-size: 0.9rem;
-        color: #555;
-        margin-top: 0.5rem;
-      }
-
-
   </style>
 </head>
 <body>
-  <img src="/images/logo.png" alt="Montshire Geospatial Logo" class="logo">
-  <p>Geospatial expertise for a connected world.</p>
-
-<div class="services">
-  <h2>Services</h2>
-  <div class="service-scroll">
-    <div class="service-card">ArcGIS Solution Architecture<br><span>Design and deployment of scalable, mission-driven geospatial environments.</span></div>
-    <div class="service-card">System & Data Integration<br><span>Connecting platforms like WebEOC, Salesforce, AWS, and Power Platform.</span></div>
-    <div class="service-card">Operational Dashboards<br><span>Real-time decision support using ArcGIS Dashboards and StoryMaps.</span></div>
-    <div class="service-card">Cloud-Based Automation<br><span>Serverless data pipelines and ETL tools using Python and AWS Lambda.</span></div>
-    <div class="service-card">Geospatial Strategy<br><span>Consulting for standards, architecture, and public sector GIS programs.</span></div>
+  <div class="logo-container">
+    <img src="/images/logo.png" alt="Montshire Geospatial Logo" class="logo">
+    <p class="tagline">Geospatial expertise for a connected world.</p>
   </div>
-</div>
+
+  <div class="services">
+    <h2>Services</h2>
+    <button class="scroll-arrow scroll-left" onclick="scrollServices(-1)">&#8592;</button>
+    <div class="service-scroll" id="serviceScroll">
+      <div class="service-card">ArcGIS Solution Architecture<br><span>Design and deployment of scalable, mission-driven geospatial environments.</span></div>
+      <div class="service-card">System & Data Integration<br><span>Connecting platforms like WebEOC, Salesforce, AWS, and Power Platform.</span></div>
+      <div class="service-card">Operational Dashboards<br><span>Real-time decision support using ArcGIS Dashboards and StoryMaps.</span></div>
+      <div class="service-card">Cloud-Based Automation<br><span>Serverless data pipelines and ETL tools using Python and AWS Lambda.</span></div>
+      <div class="service-card">Geospatial Strategy<br><span>Consulting for standards, architecture, and public sector GIS programs.</span></div>
+    </div>
+    <button class="scroll-arrow scroll-right" onclick="scrollServices(1)">&#8594;</button>
+  </div>
 
   <div class="contact">
     <p>Contact: <a href="mailto:info@montshire-geospatial.com">info@montshire-geospatial.com</a></p>
   </div>
+
+  <script>
+    function scrollServices(direction) {
+      const container = document.getElementById('serviceScroll');
+      const scrollAmount = 300;
+      container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+    }
+  </script>
 </body>
 </html>
